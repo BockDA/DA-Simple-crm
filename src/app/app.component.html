@@ -1,1 +1,41 @@
-<h1>Test</h1>
+<mat-drawer-container class="app-container" autosize>
+
+  <!-- GELB: geht von oben bis unten (top 0) -->
+  <mat-drawer #drawer class="app-sidenav" mode="side" opened>
+    <div class="logo-container">
+      Platz für Logo
+    </div>
+
+    <ul class="menue-items">
+        <li><mat-icon fontIcon="person"></mat-icon>Dashboard</li>
+        <li><mat-icon fontIcon="home"></mat-icon>User</li>
+      </ul>
+ 
+  </mat-drawer>
+
+  <!-- Alles rechts (Toolbar + Content) wird mit verschoben -->
+  <mat-drawer-content>
+
+    <mat-toolbar class="app-toolbar">
+      <button mat-icon-button class="icon-btn" aria-label="Menü öffnen" (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+
+      <span class="title">Simple Crm</span>
+      <span class="spacer"></span>
+
+      <button mat-icon-button class="icon-btn" aria-label="Favorit">
+        <mat-icon>favorite</mat-icon>
+      </button>
+
+      <button mat-icon-button class="icon-btn" aria-label="Teilen">
+        <mat-icon>share</mat-icon>
+      </button>
+    </mat-toolbar>
+
+    <div class="app-content">
+      <p>Hier kommt dein Content rein…</p>
+    </div>
+
+  </mat-drawer-content>
+</mat-drawer-container>

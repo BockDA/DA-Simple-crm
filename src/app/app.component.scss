@@ -1,0 +1,94 @@
+/* Wichtig: Container muss volle Viewport-Höhe haben */
+.app-container {
+    height: 100vh;
+}
+
+/* Drawer links */
+.app-sidenav {
+    width: 300px;
+    background-color: yellow;
+    border-radius: 0;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid gray;
+    padding-left: 12px;
+    height: 64px;
+
+}
+
+
+/* Toolbar oben rechts – wird mitgeschoben, weil sie im drawer-content liegt */
+.app-toolbar {
+    background-color: blue;
+    gap: 10px;
+    padding: 0 8px;
+
+
+}
+
+.menue-items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+        display: flex;
+        align-items: center;
+        height: 48px;
+        width: 100%;
+        box-sizing: border-box;
+        padding-left: 16px;
+        padding-right: 16px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.25);
+        }
+    }
+}
+
+/* Content rechts */
+.app-content {
+    background-color: red;
+    //height: 100vh;
+    min-height: calc(100vh - 64px);
+    /* unter Toolbar */
+    padding: 16px;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Icon Buttons */
+.icon-btn {
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+}
+
+.icon-btn:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Mobile Toolbar Höhe oft 56px */
+@media (max-width: 599px) {
+    .app-content {
+        min-height: calc(100vh - 56px);
+    }
+
+    .app-sidenav {
+        width: 280px;
+    }
+}

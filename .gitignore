@@ -42,4 +42,4 @@ testem.log
 Thumbs.db
 
 #Angular 
-.app.config.ts
+app.config.ts

@@ -7,8 +7,8 @@
     </div>
 
     <ul class="menue-items">
-        <li><mat-icon fontIcon="person"></mat-icon>Dashboard</li>
-        <li><mat-icon fontIcon="home"></mat-icon>User</li>
+        <li routerLink="/"><mat-icon fontIcon="person"></mat-icon>Dashboard</li>
+        <li routerLink="/user"><mat-icon fontIcon="home"></mat-icon>User</li>
       </ul>
  
   </mat-drawer>
@@ -22,7 +22,10 @@
       </button>
 
       <span class="title">Simple Crm</span>
-      <span class="spacer"></span>
+       <span class="spacer"></span>
+
+
+
 
       <button mat-icon-button class="icon-btn" aria-label="Favorit">
         <mat-icon>favorite</mat-icon>
@@ -33,8 +36,8 @@
       </button>
     </mat-toolbar>
 
-    <div class="app-content">
-      <p>Hier kommt dein Content rein…</p>
+    <div class="router-container">
+      <router-outlet></router-outlet>
     </div>
 
   </mat-drawer-content>

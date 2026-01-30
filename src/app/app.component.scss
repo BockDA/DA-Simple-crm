@@ -30,7 +30,13 @@
 
 }
 
+
+
+
 .menue-items {
+ 
+
+    align-items: center;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -49,16 +55,25 @@
             background-color: rgba(0, 0, 0, 0.25);
         }
     }
+
+
 }
 
-/* Content rechts */
-.app-content {
-    background-color: red;
-    //height: 100vh;
-    min-height: calc(100vh - 64px);
-    /* unter Toolbar */
-    padding: 16px;
+mat-icon {
+    margin-right: 16px;
 }
+
+
+/* Content rechts */
+.router-container {
+   // background-color: red;
+    //height: 100vh;
+    //min-height: calc(100vh - 64px);
+    /* unter Toolbar */
+  padding-left: 56px;
+  padding-top: 16px;
+}
+
 
 .spacer {
     flex: 1 1 auto;

@@ -9,6 +9,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { User } from '../../model/user.class';
 import { Firestore, addDoc, collection } from '@angular/fire/firestore';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 
@@ -26,6 +27,8 @@ import { Firestore, addDoc, collection } from '@angular/fire/firestore';
     FormsModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatProgressBarModule,
+
   ],
   templateUrl: './dialog-add-user.component.html',
   styleUrl: './dialog-add-user.component.scss',
@@ -34,6 +37,7 @@ export class DialogAddUserComponent {
 
   user = new User();
   birthDate: Date | null = null;
+  loading: boolean = false;
 
 
   constructor(
@@ -49,6 +53,7 @@ export class DialogAddUserComponent {
       return;
     }
 
+    this.loading = true;
     this.user.birthDate = this.birthDate.getTime();
     console.log('User to save:', this.user);
 
@@ -57,7 +62,7 @@ export class DialogAddUserComponent {
       return addDoc(usersCollection, this.user.toJson());
     });
     console.log('User saved with ID:', result.id);
-
+    this.loading = false;
     this.dialogRef.close(true);
   }
 

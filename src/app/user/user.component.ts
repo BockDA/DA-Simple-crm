@@ -17,7 +17,7 @@ import { User } from '../../model/user.class';
 export class UserComponent {
 
   user = new User();
-  
+
 
 
   constructor(private dialog: MatDialog) { }
@@ -34,6 +34,7 @@ export class UserComponent {
       //width: '1200px',
       //height: '850px',
       enterAnimationDuration: '500ms',
+     
 
     });
 

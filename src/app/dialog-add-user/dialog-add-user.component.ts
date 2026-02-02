@@ -8,7 +8,7 @@ import { MatDateFormats, MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { User } from '../../model/user.class';
-import { Firestore, addDoc, collection } from '@angular/fire/firestore';
+import { Firestore, addDoc, collection} from '@angular/fire/firestore';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 

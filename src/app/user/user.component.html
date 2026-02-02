@@ -1,8 +1,23 @@
-<p>user works!</p>
-
+<mat-card>
+    <table class="user-table">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>City</th>
+        </tr>
        
-            <button (click)="openDialog()" class="add-user-bnt" matFab aria-label="Example icon button with a delete icon">
-                <mat-icon>add_2</mat-icon>
-            </button>
-     
+        <tr *ngFor="let user of users$ | async">
+            <td>{{ user.firstname }} {{user.lastname}}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.city }}</td>
+        </tr>
+       
+    </table>
+</mat-card>
 
+
+
+
+<button (click)="openDialog()" class="add-user-bnt" matFab aria-label="Example icon button with a delete icon">
+    <mat-icon>add_2</mat-icon>
+</button>

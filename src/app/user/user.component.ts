@@ -1,44 +1,50 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject, OnDestroy } from '@angular/core';
+import { AsyncPipe, NgFor } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from "@angular/material/icon";
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatCardModule } from '@angular/material/card';
 import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
-import { User } from '../../model/user.class';
-
-
+import { Firestore, collection, collectionData } from '@angular/fire/firestore';
+import { Observable, Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-user',
   standalone: true,
-  imports: [MatButtonModule, MatIconModule, MatDialogModule],
+  imports: [NgFor, AsyncPipe, MatButtonModule, MatIconModule, MatDialogModule, MatCardModule],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss',
 })
-export class UserComponent {
+export class UserComponent implements OnInit, OnDestroy {
+  private firestore = inject(Firestore);
+  private destroy$ = new Subject<void>();
+  allUsers: any[] = [];
 
-  user = new User();
-
-
+  users$: Observable<any[]> = collectionData(
+    collection(this.firestore, 'users'),
+    { idField: 'id' }
+  ) as Observable<any[]>;
 
   constructor(private dialog: MatDialog) { }
 
-
   ngOnInit() {
-    //console.log("Test-1");
+    this.users$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(users => {
+        console.log('users', users);
+        this.allUsers = users;
+      });
   }
 
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
 
   openDialog() {
     console.log("Dialog geöffnet");
     this.dialog.open(DialogAddUserComponent, {
-      //width: '1200px',
-      //height: '850px',
       enterAnimationDuration: '500ms',
-     
-
     });
-
   }
-
 }
-

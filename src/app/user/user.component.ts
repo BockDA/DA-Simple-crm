@@ -1,5 +1,6 @@
 import { Component, OnInit, inject, OnDestroy } from '@angular/core';
 import { AsyncPipe, NgFor } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from "@angular/material/icon";
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
@@ -11,7 +12,7 @@ import { Observable, Subject, takeUntil } from 'rxjs';
 @Component({
   selector: 'app-user',
   standalone: true,
-  imports: [NgFor, AsyncPipe, MatButtonModule, MatIconModule, MatDialogModule, MatCardModule],
+  imports: [NgFor, AsyncPipe, RouterLink, MatButtonModule, MatIconModule, MatDialogModule, MatCardModule],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss',
 })
@@ -31,7 +32,7 @@ export class UserComponent implements OnInit, OnDestroy {
     this.users$
       .pipe(takeUntil(this.destroy$))
       .subscribe(users => {
-        console.log('users', users);
+        // console.log('users', users);
         this.allUsers = users;
       });
   }

@@ -17,10 +17,17 @@
 
             <mat-form-field appearance="outline" class="mr-16">
                 <mat-label>Last Name</mat-label>
-                <input  [disabled]="loading" [(ngModel)]="user.lastname" matInput placeholder="Last Name">
+                <input [disabled]="loading" [(ngModel)]="user.lastname" matInput placeholder="Last Name">
                 <!-- <mat-hint>Enter the last name</mat-hint>-->
             </mat-form-field>
         </div>
+
+        <mat-form-field appearance="outline" class="full-width mr-16">
+            <mat-label>E-Mail</mat-label>
+            <input [disabled]="loading" [(ngModel)]="user.email" matInput placeholder="E-Mail">
+            <!-- <mat-hint>Enter the last name</mat-hint>-->
+        </mat-form-field>
+
 
         <div>
             <mat-form-field appearance="outline" class="full-width mr-16">

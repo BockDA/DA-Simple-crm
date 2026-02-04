@@ -1,15 +1,66 @@
-<mat-card>
-<div class="user-detail-header">
-    <img src="../assets/img/profil.png">
-    <div class="user-details">
-        <h2>Max Mustermann<br></h2>
-        email@twedt.de
+<mat-card class="card-first">
+    <button mat-icon-button class="close-btn" [routerLink]="['/user']">
+        <mat-icon>close</mat-icon>
+    </button>
+
+ 
+
+
+    <button mat-icon-button [matMenuTriggerFor]="editUserMenu" class="edit-btn">
+        <mat-icon>more_vert</mat-icon>
+    </button>
+
+<mat-menu #editUserMenu="matMenu">
+    <button mat-menu-item (click)="editUserDialog()">
+        <mat-icon>edit</mat-icon>
+        <span>Edit</span>
+    </button>
+
+    <button mat-menu-item>
+        <mat-icon>delete</mat-icon>
+        <span>Delete</span>
+    </button>
+</mat-menu>
+
+
+
+
+    <div class="user-detail-header">
+        <img src="../assets/img/profil.png">
+        <div class="user-details">
+            <h2>{{user.firstname}} {{user.lastname}}<br></h2>
+            {{user.email}}
+        </div>
     </div>
-</div>
 </mat-card>
 
 
 
-<mat-card>
+<mat-card class="mt-32">
 
+
+    <button mat-icon-button [matMenuTriggerFor]="menu" class="more-button">
+        <mat-icon>more_vert</mat-icon>
+    </button>
+
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="editAdressDialog()">
+            <mat-icon>edit</mat-icon>
+            <span>Edit</span>
+        </button>
+
+        <button mat-menu-item>
+            <mat-icon>delete</mat-icon>
+            <span>Delete</span>
+        </button>
+    </mat-menu>
+
+
+    <mat-card-header>
+        <mat-card-title>Address</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <p>{{user.street}} </p>
+        <p>{{user.zipCode}} {{user.city}}</p>
+    </mat-card-content>
 </mat-card>

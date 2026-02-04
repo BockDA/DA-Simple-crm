@@ -1,18 +1,18 @@
-mat-card {
+.card-first {
     min-height: 250px;
     background-color: #ff5b27;
-
+    padding-bottom: 16px;
+    padding-left: 16px;
 }
 
 .user-detail-header {
     min-height: 250px;
-    background-color: #ff5b27;
+
     color: white;
     display: flex;
     align-items: flex-end;
 
     img {
-
         width: 100px;
         height: 100px;
         object-fit: cover;
@@ -32,4 +32,24 @@ mat-card {
     h2 {
         margin: 0;
     }
+}
+
+.more-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}
+
+
+.close-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}
+
+.edit-btn {
+    position: absolute;
+    top: 32px;
+    right: 8px;
+
 }
